@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Customer Churn Predictor</title>
+    <meta name="description" content="Predict customer churn securely with Advanced Machine Learning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="glass-panel">
+            <div class="header">
+                <h1>Churn Predictor</h1>
+                <p>Run advanced diagnostics on 10 critical customer features.</p>
+            </div>
+
+            <form id="prediction-form">
+                <div class="grid-layout">
+                    
+                    <div class="input-group">
+                        <label for="geography">Geography</label>
+                        <div class="input-wrapper">
+                            <select id="geography" name="geography" required>
+                                <option value="" disabled selected>Select country</option>
+                                <option value="France">France</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Spain">Spain</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="gender">Gender</label>
+                        <div class="input-wrapper">
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="age">Age</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="age" name="age" placeholder="e.g. 35" required min="18" max="100">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="credit-score">Credit Score</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="credit-score" name="credit_score" placeholder="300-850" required min="300" max="850">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="tenure">Tenure (Years)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="tenure" name="tenure" placeholder="0-10" required min="0" max="10">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="balance">Account Balance</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="balance" name="balance" placeholder="e.g. 100000" step="100" required min="0">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="num-products">Num of Products</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="num-products" name="num_products" placeholder="1-4" required min="1" max="4">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="estimated-salary">Est. Salary</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="estimated-salary" name="estimated_salary" placeholder="e.g. 50000" step="100" required min="0">
+                        </div>
+                    </div>
+
+                    <div class="input-group checkbox-group">
+                        <label class="toggle-container">
+                            <input type="checkbox" id="has-crcard" name="has_crcard" checked>
+                            <span class="checkmark"></span>
+                            Has Credit Card?
+                        </label>
+                    </div>
+
+                    <div class="input-group checkbox-group">
+                        <label class="toggle-container">
+                            <input type="checkbox" id="is-active" name="is_active_member" checked>
+                            <span class="checkmark"></span>
+                            Is Active Member?
+                        </label>
+                    </div>
+
+                </div> <!-- End Grid Layout -->
+
+                <button type="submit" id="submit-btn" class="glow-on-hover">
+                    <span class="btn-text">Predict Churn Probability</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </form>
+
+            <div id="result-container" class="result-container hidden">
+                <div class="result-card">
+                    <h2 id="result-title">Model Result</h2>
+                    <div class="prediction-value">
+                        <span id="churn-probability" class="prob-text">--%</span>
+                        <p id="churn-status" class="status-badge">Unknown</p>
+                    </div>
+                    <button class="reset-btn" id="reset-btn">Analyze Another Customer</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
